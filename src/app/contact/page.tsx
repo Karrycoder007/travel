@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -106,11 +107,15 @@ export default function Contact() {
 
         {/* Right: Image and Map */}
         <div className="space-y-6">
-          <img
-            src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
-            alt="Travel team"
-            className="rounded-xl w-full h-64 object-cover shadow-md"
-          />
+          <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-md">
+            <Image
+              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
+              alt="Travel team"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <iframe
             title="Office Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12216.99939484756!2d-0.12775850212897258!3d51.50735075716964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b333f244511%3A0x6e4b049f4d47c0e2!2sLondon!5e0!3m2!1sen!2sin!4v1685111647837!5m2!1sen!2sin"

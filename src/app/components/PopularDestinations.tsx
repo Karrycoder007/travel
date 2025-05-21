@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 
 const destinations = [
   {
@@ -31,11 +34,16 @@ const PopularDestinations: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {destinations.map((dest, idx) => (
             <div key={idx} className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
-              <img
-                src={dest.image}
-                alt={dest.title}
-                className="w-full h-64 object-cover transition duration-300 group-hover:brightness-75"
-              />
+              <div className="relative w-full h-64 transition duration-300 group-hover:brightness-75">
+                <Image
+                  src={dest.image}
+                  alt={dest.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  priority={idx === 0} // optional priority for first image
+                />
+              </div>
               <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
                 <h3 className="text-xl font-bold text-white mb-1">{dest.title}</h3>
                 <p className="text-sm text-gray-200">{dest.description}</p>

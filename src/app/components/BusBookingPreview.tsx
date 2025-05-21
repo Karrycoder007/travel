@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const buses = [
@@ -47,8 +48,20 @@ const BusBookingPreview: React.FC = () => {
         <h2 className="text-3xl font-bold mb-8 text-center">Available Buses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {buses.map((bus) => (
-            <div key={bus.id} className="bg-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-              <img src={bus.image} alt={bus.name} className="w-full h-40 object-cover" />
+            <div
+              key={bus.id}
+              className="bg-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"
+            >
+              <div className="relative w-full h-40">
+                <Image
+                  src={bus.image}
+                  alt={bus.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  priority={bus.id === 1} // optional priority for first image
+                />
+              </div>
               <div className="p-4">
                 <h3 className="text-lg font-semibold">{bus.name}</h3>
                 <p className="text-sm text-gray-700">{bus.route}</p>

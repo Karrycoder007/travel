@@ -28,12 +28,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <Link
-            href="/login"
-            className="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-          >
-            Login
-          </Link>
+         
 
           {/* Hamburger button for mobile */}
           <button
@@ -74,13 +69,7 @@ export default function Navbar() {
           <Link href="/contact" className="text-gray-700 hover:text-blue-600" onClick={() => setMenuOpen(false)}>
             Contact
           </Link>
-          <Link
-            href="/login"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center"
-            onClick={() => setMenuOpen(false)}
-          >
-            Login
-          </Link>
+         
         </nav>
       </div>
 

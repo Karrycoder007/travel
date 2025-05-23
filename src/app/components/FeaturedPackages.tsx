@@ -1,4 +1,5 @@
-"use client"
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -27,7 +28,7 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      delay: i * 0.2, // stagger delay based on index
+      delay: i * 0.2,
       ease: 'easeOut',
     },
   }),
@@ -40,22 +41,25 @@ const FeaturedPackages: React.FC = () => {
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-8 text-black">Featured Packages</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
-            <motion.div
+            <div
               key={pkg.title}
               className="bg-gray-100 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-              custom={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-4">{pkg.title}</h3>
-              <p>{pkg.description}</p>
-              <p className="text-lg font-bold mt-4">{pkg.price}</p>
-              <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300">
-                Book Now
-              </button>
-            </motion.div>
+              <motion.div
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <h3 className="text-xl sm:text-2xl font-bold mb-4">{pkg.title}</h3>
+                <p>{pkg.description}</p>
+                <p className="text-lg font-bold mt-4">{pkg.price}</p>
+                <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300">
+                  Book Now
+                </button>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>

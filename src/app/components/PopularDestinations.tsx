@@ -39,19 +39,21 @@ const FeaturedPackages: React.FC = () => {
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.title}
-              className="bg-gray-100 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
               custom={index}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-4">{pkg.title}</h3>
-              <p>{pkg.description}</p>
-              <p className="text-lg font-bold mt-4">{pkg.price}</p>
-              <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300">
-                Book Now
-              </button>
+              {/* Normal div with className here */}
+              <div className="bg-gray-100 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4">{pkg.title}</h3>
+                <p>{pkg.description}</p>
+                <p className="text-lg font-bold mt-4">{pkg.price}</p>
+                <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300">
+                  Book Now
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>

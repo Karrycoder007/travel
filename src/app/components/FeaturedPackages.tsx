@@ -1,5 +1,5 @@
-// components/FeaturedPackages.tsx
-"use client"
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -34,22 +34,25 @@ const FeaturedPackages: React.FC = () => {
               price: '$899 per person',
             },
           ].map((pkg, i) => (
-            <motion.div
+            <div
               key={i}
               className="bg-gray-100 p-6 rounded-xl shadow-lg"
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-4">{pkg.title}</h3>
-              <p>{pkg.description}</p>
-              <p className="text-lg font-bold mt-4">{pkg.price}</p>
-              <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300">
-                Book Now
-              </button>
-            </motion.div>
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+              >
+                <h3 className="text-xl sm:text-2xl font-bold mb-4">{pkg.title}</h3>
+                <p>{pkg.description}</p>
+                <p className="text-lg font-bold mt-4">{pkg.price}</p>
+                <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300">
+                  Book Now
+                </button>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>
